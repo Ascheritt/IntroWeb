@@ -1,0 +1,25 @@
+body{
+    font-family: "Comic Sans MS";
+    background: center no-repeat url("../images/fond.jpg");
+}
+h1 {
+    color:blue;
+    border: 1px solid black;
+    text-align: center;
+}
+
+li {
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+/* classe */
+#nomCours{
+    text-transform:uppercase;
+    color: green;
+}
+/* id */
+.metier {
+    color: darkmagenta;
+    font-weight: bold;
+}
