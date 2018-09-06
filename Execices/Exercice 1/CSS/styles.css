@@ -2,17 +2,13 @@ body {
 font-family: "Comic Sans MS";
     background: center no-repeat url("../images/fond.png");
 }
+
 h1 {
     color: green;
     border: black 4px solid;
 }
-h2 {
-    color: green;
-}
-h3 {
+h2, h3, h4 {
    color: green;
 }
-h4 {
-    color: green;
-}
+
 
