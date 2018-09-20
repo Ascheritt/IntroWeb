@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<title>FORMULAIRE</title>
+	<meta  charset="UTF-8">
+	<meta name="title" content="Titre de la page">
+	<meta name="description" content="description de la page">
+	<meta name="author" content="prenon NOM">
+	<meta name="keywords" content="mots-clé1, mots-clé2, ...">
+	<meta name="robots" content="index,follow">
+	<link rel="stylesheet " href ="CSS/Style.css"/>
+</head>
+<body>
+	<div class="form-style">
+		<div class="Entete">Entrez les informations du membre</div>
+		<form action="" method="post">
+
+			<div class="InfoPers">
+				<label for="Nom">Nom* </label>
+				<input id="Nom" type="text" name="Nom" placeholder="NOM"></br>
+				<label for="Prénom">Prénom* </label>
+					<input id="Prénom" type="text" name="Prénom" placeholder="Prénom"></br>
+				<label for="Âge">Âge* </label>
+					<input id="Âge" type="text" name="Nom" placeholder=""></br>
+				<label for="Sexe">Sexe </label>
+					<input id="Sexe" type="radio" value="Masculin" name="Sexe">Masculin</br>
+						<input type="radio" value="Féminin" name="Sexe" checked/>Féminin
+			</div>
+
+			<div class="InfoMaison">
+				<label for="Adresse">Adresse </label>
+					<input id="Adresse" type="text" name="Nom" placeholder="000 rue" size="10%"></br>
+				<label for="Ville">Ville </label>
+					<input id="Ville" type="text" name="Nom" size="10%"></br>
+				<label for="Téléphone">Téléphone* </label>
+					<input id="Téléphone" type="text" name="Nom" placeholder="000 000-0000" size="10%" maxlength="12"></br>
+				<label for="DateDébut">Date d'inscription* </label>
+					<input id="DateDébut" type="text" name="Nom" placeholder="jj/mm/aaaa" size="10%"></br>
+				<label for="DateFin">Date de fin </label>
+					<input id="DateFin" type="text" name="Nom" placeholder="jj/mm/aaaa" size="10%"></br>
+			</div>
+
+			<div class="InfoCarte">
+				<label for="Choix">Choix </label>
+					<input id="Choix" type="text" name="Nom" placeholder="NOM"></br>
+				<label for="Carte">Carte de crédit* </label>
+					<input id="Carte" type="text" name="Nom" placeholder="NOM"></br>
+				<label for="MotDePass">Mot de passe* </label>
+					<input id="MotDePass" type="password" name="txtMotPass" placeholder="NOM"></br>
+				<label for="Courriel">Courriel </label>
+					<input id="Courriel" type="text" name="Nom" placeholder="NOM"></br>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
