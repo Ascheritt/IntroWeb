@@ -17,7 +17,13 @@
 }
 label{
     display: inline-block;
-    width: 30%;
+    width: 40%;
     margin-bottom: 1.5%;
 }
+span{
+    color: red;
+}
+.boutton{
+    margin-left: 31%;
 
+}
