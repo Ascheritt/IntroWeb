@@ -12,10 +12,12 @@
     padding-bottom: 3px;
 }
 .InfoPers, .InfoMaison, .InfoCarte{
-    margin-bottom: 2%;
+    margin-bottom: 4%;
+
 }
 label{
     display: inline-block;
     width: 30%;
     margin-bottom: 1.5%;
 }
+

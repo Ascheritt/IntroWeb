@@ -21,10 +21,10 @@
 				<label for="Prénom">Prénom* </label>
 					<input id="Prénom" type="text" name="Prénom" placeholder="Prénom"></br>
 				<label for="Âge">Âge* </label>
-					<input id="Âge" type="text" name="Nom" placeholder=""></br>
+					<input id="Âge" type="text" name="Nom" placeholder="" size="1%"></br>
 				<label for="Sexe">Sexe </label>
-					<input id="Sexe" type="radio" value="Masculin" name="Sexe">Masculin</br>
-						<input type="radio" value="Féminin" name="Sexe" checked/>Féminin
+					<input id="Sexe" type="radio" value="Masculin" name="Sexe" checked>Masculin
+						<input type="radio" value="Féminin" name="Sexe" />Féminin
 			</div>
 
 			<div class="InfoMaison">
@@ -33,23 +33,33 @@
 				<label for="Ville">Ville </label>
 					<input id="Ville" type="text" name="Nom" size="10%"></br>
 				<label for="Téléphone">Téléphone* </label>
-					<input id="Téléphone" type="text" name="Nom" placeholder="000 000-0000" size="10%" maxlength="12"></br>
+					<input id="Téléphone" type="tel" name="Nom" placeholder="000 000-0000" size="10%" maxlength="12"></br>
 				<label for="DateDébut">Date d'inscription* </label>
-					<input id="DateDébut" type="text" name="Nom" placeholder="jj/mm/aaaa" size="10%"></br>
+					<input id="DateDébut" type="date" name="Nom" placeholder="jj/mm/aaaa" size="10%"></br>
 				<label for="DateFin">Date de fin </label>
-					<input id="DateFin" type="text" name="Nom" placeholder="jj/mm/aaaa" size="10%"></br>
+					<input id="DateFin" type="date" name="Nom" placeholder="jj/mm/aaaa" size="10%"></br>
 			</div>
 
 			<div class="InfoCarte">
-				<label for="Choix">Choix </label>
-					<input id="Choix" type="text" name="Nom" placeholder="NOM"></br>
+				<label for="Choix">Choisissez l'une des marques
+                de carte de crédits suivantes :</label>
+                <select id="Choix" name="maListe">
+                    <option value="produit1">MasterCard</option>
+                    <option value="produit2">Visa</option>
+                    <option value="produit3">Paypal</option>
+                    <option value="produit4">TD Desjardin</option>
+                </select></br>
 				<label for="Carte">Carte de crédit* </label>
-					<input id="Carte" type="text" name="Nom" placeholder="NOM"></br>
+					<input id="Carte" type="text" name="Nom" placeholder="0000 0000 0000 0000" maxlength="19"></br>
 				<label for="MotDePass">Mot de passe* </label>
-					<input id="MotDePass" type="password" name="txtMotPass" placeholder="NOM"></br>
+					<input id="MotDePass" type="password" name="txtMotPass" placeholder=""></br>
 				<label for="Courriel">Courriel </label>
-					<input id="Courriel" type="text" name="Nom" placeholder="NOM"></br>
+					<input id="Courriel" type="email" name="Nom" placeholder="xxxx@xxxx.xxx"></br>
 			</div>
+
+                <input id="Refaire" type="reset" name="Nom" placeholder="NOM"></br>
+                <input id="Envoyer" type="submit" name="Nom" placeholder="NOM"></br>
+
 		</form>
 	</div>
 </body>
