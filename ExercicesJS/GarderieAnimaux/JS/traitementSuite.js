@@ -65,6 +65,7 @@ function btnCalculer_onclick()
     montantF = montant + prixtoil + tps + tvq;
     document.getElementById("lblMessage").innerHTML = "Le coût des soins de votre animal est de " + montantF;
 }
+
 function btnRadio_onclick()
 {
     if (document.getElementById("radChien").checked === true )
