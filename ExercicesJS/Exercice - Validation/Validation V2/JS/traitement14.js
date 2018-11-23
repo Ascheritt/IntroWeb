@@ -9,16 +9,24 @@ function btnCalculer_onclick()
 }
 function validChampObligatoire()
 {
-    var i, valide = false;
+    var i, valide, cpt;
+    valide = false;
+    cpt = 0;
     var tabnomID = new Array("txtNbre1", "txtNbre2", "txtOperateur");
 
     for (i = 0; i < 3; i++)
     {
-        if(validExist(tabnomID[i])===true)
+        if(valideExist(tabnomID[i])===true)
         {
-            valide = true;
+            cpt++;
         }
     }
+    if (cpt === 3)
+    {
+        valide=true;
+    }
+
+    return valide;
 }
 function valideExist(nomID)
 {

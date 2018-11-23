@@ -1,5 +1,6 @@
 var tabJoueurs = new Array(4);
 var tabPts = new Array(4);
+var txtExist;
 cpt=0;
 
 
@@ -56,6 +57,37 @@ function btnMeilleurPointage_onclick()
     Meilleur = trouverMeilleurPt();
     document.getElementById("lblReponse").innerHTML = ("Voici le meilleur pointage: " + Meilleur);
 }
+
+function btnRechercher_onclick()
+{
+    var trouver, nomSaisie, resultat, nomResultat, i;
+    nomSaisie = document.getElementById("txtJoueur").value;
+    i = 0;
+    trouver = false;
+    while((trouver === false) && (i < 4))
+    {
+        if(nomSaisie === tabJoueurs[i])
+        {
+            resultat = tabPts[i];
+            nomResultat = tabJoueurs[i];
+            trouver = true;
+        }
+        else
+        {
+            i++;
+        }
+    }
+    if(trouver === true)
+    {
+        document.getElementById("lblReponse").innerHTML = "Le score de "+ nomResultat +" est de "+ resultat;
+    }
+    else
+    {
+        document.getElementById("lblReponse").innerHTML = "Le nom n'existe pas";
+    }
+}
+
+
 function trouverMeilleurPt()
 {
     var i, max, valeur;
