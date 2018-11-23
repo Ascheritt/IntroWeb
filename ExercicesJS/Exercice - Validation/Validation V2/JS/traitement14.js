@@ -41,7 +41,6 @@ function valideExist(nomID)
         document.getElementById(nomID).style.backgroundColor = "white";
     }
     return valide;
-
 }
 
 function traiterInfos()

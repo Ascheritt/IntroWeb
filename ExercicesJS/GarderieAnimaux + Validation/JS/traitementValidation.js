@@ -1,157 +1,86 @@
-var ServiceToilettage, PrixServiceToilettage ,NbreJours, Tarif, Montant, Salaire, Veterinaires, Choix, Taxes, Rabais, NbreHeures, TauxHoraires, Valide;
-
 function btnCalculer_onclick()
 {
-    SaisirVariables();
-    saisirTauxHoraires();
-    SaisirNbreJours();
-    SaisirService();
-    CalculerMontant();
-    Valide = validChampOblig();
-
-
-
-
-    document.getElementById("lblMessage").innerHTML = " Le montant sera de: " + Taxes + " et Votre Veterinaire sera " + Veterinaires + " pour la garde de votre " + Choix + " " + ServiceToilettage2 ;
-
-}
-
-function validChampOblig()
-{
-    var valide = true;
-    var TabValeurs = new Array("txtNbreJours", "txtNomClient", "txtNumClient")
-
-    for(var i=0 ; i < TabValeurs.length; i++)
+    if (valideChampsObligatoire() === true)
     {
-        if(validExist(TabValeurs[i]) === false)
-        {
-            valide = false;
-        }
-
+        TraiterInfo();
     }
-    return valide;
 }
 
-function validExist(NomID)
+function TraiterInfo()
 {
-    var valide = true;
-
-    if(document.getElementById(NomID).value === "")
-    {
-        valide = false;
-        document.getElementById(NomID).style.backgroundColor = "Red";
-    }
-    else {
-        valide = true;
-        document.getElementById(NomID).style.backgroundColor = "White";
-    }
-    return valide;
-
+    document.getElementById("lblMessage").innerHTML = CalculerRes(document.getElementById("1stVeterinaire").value, parseFloat(document.getElementById("txtNbreJours")).value, parseFloat(document.getElementById("txtNbreHeures")).value);
 }
 
-function saisirTauxHoraires()
+function CalculerRes(lstVeterinaire, txtNbreJours, txtNbreHeures)
 {
+    var Rabais, TauxHoraire, Res, Veterinaire, TarifToilettage, Montant, MontantTotal, Toilettage, TarifAnimal, Animal;
 
-    Veterinaires = document.getElementById("lstVeterinaire").value;
+    Veterinaire = lstVeterinaire;
 
-
-    switch (Veterinaires)
-    {
-        case "Audrey Bouchard":
-
-            TauxHoraires = 25;
-        break;
-
-        case "Stéphane Tremblay":
-
-            TauxHoraires = 35;
-        break;
-
-        case "Maxime Simard":
-
-            TauxHoraires = 40;
-        break;
-
-        case "Mélissa Caron":
-
-            TauxHoraires = 45;
-        break;
-    }
-
-}
-
-function SaisirNbreJours()
-
-{
-    if ((NbreJours >= 1) && (NbreJours <= 5))
+    if ((txtNbreJours >= 1) && (txtNbreJours <5))
     {
         Rabais = 0;
     }
-    else if ((NbreJours >= 5) && (NbreJours <= 10))
-        {
-            Rabais = 0.05;
-        }
-    else if ((NbreJours >= 10 && NbreJours <= 30))
-        {
-            Rabais = 0.01;
-        }
-    else if (NbreJours >= 30)
-        {
-            Rabais = 0.015;
-        }
-}
-
-function CalculerMontant()
-{
-    if (document.getElementById("radChien").checked === true)
+    else if ((txtNbreJours >= 5) && (txtNbreJours <10))
     {
-        Tarif = 18.50;
-
-        Choix = "Chien";
-
+        Rabais = 0.05;
+    }
+    else if ((txtNbreJours >= 10) && (txtNbreJours < 30))
+    {
+        Rabais = 0.1;
     }
     else
     {
-        Tarif = 16.95;
-        Choix = "Chat";
+        Rabais = 0.15;
     }
 
-    Salaire = (NbreHeures*TauxHoraires);
-    Rabais = (NbreJours*Tarif) * Rabais;
-    Montant = ((NbreJours*Tarif) - Rabais) + ServiceToilettage;
-    Taxes = Montant + (Montant*1.14975) + Travail;
-
-
-}
-
-function SaisirService()
-{
-
-
-    if (document.getElementById("chkServ").checked === true)
+    switch (Veterinaire)
     {
-
-        PrixServiceToilettage = 5;
-        ServiceToilettage = "avec Service de Toilettage"
+        case "Audrey Bouchard":
+            TauxHoraire = 25;
+            break;
+        case "Stéphane Tremblay":
+            TauxHoraire =35;
+            break;
+        case "Maxime Simard":
+            TauxHoraire =40;
+            break;
+        case "Mélissa Caron":
+            TauxHoraire =45;
+            break;
     }
 
+    if(document.getElementById("chkServ").checked === true )
+    {
+        TarifToilettage = 5;
+        Toilettage = "avec";
+    }
     else
     {
-        PrixServiceToilettage = 0;
-        ServiceToilettage = "Sans Service de Toilettage"
+        TarifToilettage = 0;
+        Toilettage = "sans";
     }
+
+    if (document.getElementById("radChien").checked === true )
+    {
+        TarifAnimal = 18.50;
+        Animal = "chien";
+    }
+    else
+    {
+        TarifAnimal = 16.95;
+        Animal = "chat";
+    }
+
+    Montant = txtNbreJours * TauxHoraire * txtNbreHeures * ( TarifAnimal + TarifToilettage);
+    Montant = Montant * Rabais;
+    MontantTotal = Montant * 1.14975;
+
+    console.log("Vous avez choisi " + lstVeterinaire + " comme Veterinaire qui prendra soin de votre " + Animal + ", vous avez choisis " + Toilettage + " toilettage, donc pour une durée de " + txtNbreJours + " jours, il vous en coûtera " + MontantTotal + " $ avec les taxes.")
+
 }
 
-
-function SaisirVariables()
-{
-    Choix = document.getElementById("radChien","radChat").value;
-    ServiceToilettage = parseFloat(document.getElementById("chkServ").value);
-    NbreJours = parseFloat(document.getElementById("txtNbreJours").value);
-    NbreHeures = parseFloat((document.getElementById("txtNbHeures")).value);
-}
-
-function btnRadio_onclick()
+function radRadio_onclick()
 {
     if (document.getElementById("radChien").checked === true )
     {
@@ -161,4 +90,41 @@ function btnRadio_onclick()
     {
         document.getElementById("imgAnimal").src = "img/CatFrisk.jpg";
     }
+}
+
+function valideChampsObligatoire()
+{
+    var i, valide, cpt;
+    valide = false;
+    cpt = 0;
+    var tabnomID = new Array("txtNbreJours", "txtNbreHeures");
+
+    for (i = 0; i < 3; i++)
+    {
+        if(valideExist(tabnomID[i])===true)
+        {
+            cpt++;
+        }
+    }
+    if (cpt === 3)
+    {
+        valide=true;
+    }
+
+    return valide;
+}
+function valideExist(nomID)
+{
+    var valide;
+    if(document.getElementById(nomID).value === "")
+    {
+        valide = false;
+        document.getElementById(nomID).style.backgroundColor = "red";
+    }
+    else
+    {
+        document.getElementById(nomID).style.backgroundColor = "white";
+    }
+    return valide;
+
 }
