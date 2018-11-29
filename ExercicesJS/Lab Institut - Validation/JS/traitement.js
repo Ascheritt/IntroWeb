@@ -1,24 +1,25 @@
 function frmMembre_onclick()
 {
+    var Valide = false, Confirmation;
 
-    if(valideChampsObligatoires()===true)
+    if(valideChampsObligatoires() === true)
     {
 
-        if(valideFormat()===true)
+        if(valideFormat() === true)
         {
-            var txt;
-            var r = confirm("Voulez-vous vraiment vous inscrire et payer un montant de " + PrixMembre() + "$ pour devenir membre?");
-            if (r === true)
+            Confirmation = confirm("Voulez-vous vraiment vous inscrire et payer un montant de " + PrixMembre() + "$ pour devenir membre?");
+            if (Confirmation === true)
             {
-
+                Valide = true;
             }
             else
             {
-
+                Valide = false;
             }
 
         }
     }
+    return Valide;
 }
 
 function valideChampsObligatoires()
