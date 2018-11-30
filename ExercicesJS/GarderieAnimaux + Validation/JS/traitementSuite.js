@@ -66,7 +66,7 @@ function btnCalculer_onclick()
     document.getElementById("lblMessage").innerHTML = "Le coût des soins de votre animal est de " + montantF;
 }
 
-function btnRadio_onclick()
+function radRadio_onclick()
 {
     if (document.getElementById("radChien").checked === true )
     {

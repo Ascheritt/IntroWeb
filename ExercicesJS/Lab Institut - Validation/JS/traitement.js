@@ -1,4 +1,4 @@
-function frmMembre_onclick()
+function frmMembre_onsubmit()
 {
     var Valide = false, Confirmation;
 
@@ -8,6 +8,7 @@ function frmMembre_onclick()
         if(valideFormat() === true)
         {
             Confirmation = confirm("Voulez-vous vraiment vous inscrire et payer un montant de " + PrixMembre() + "$ pour devenir membre?");
+
             if (Confirmation === true)
             {
                 Valide = true;
@@ -18,6 +19,14 @@ function frmMembre_onclick()
             }
 
         }
+        else
+        {
+            Valide = false;
+        }
+    }
+    else
+    {
+        Valide = false;
     }
     return Valide;
 }
