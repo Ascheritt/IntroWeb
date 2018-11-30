@@ -27,6 +27,7 @@ function frmMembre_onsubmit()
     else
     {
         Valide = false;
+        document.getElementById("lblMessageErreur").innerHTML = "Tous les champs ayant une étoile sont obligatoires.";
     }
     return Valide;
 }
