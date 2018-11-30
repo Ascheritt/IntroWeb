@@ -1,9 +1,18 @@
-function frmMembre_onsubmit()
+var cpt = 0;
+var tabNoms = new Array();
+var tabAge = new Array();
+var Noms;
+
+function frmMembre_onclick()
 {
     var Valide = false, Confirmation;
 
     if(valideChampsObligatoires() === true)
     {
+            Noms = document.getElementById("txtPrenom").value + " " + document.getElementById("txtNom").value;
+            tabNoms[cpt] = Noms;
+            tabAge[cpt] = parseInt(document.getElementById("txtAge").value);
+            cpt++;
 
         if(valideFormat() === true)
         {
@@ -29,6 +38,50 @@ function frmMembre_onsubmit()
         Valide = false;
     }
     return Valide;
+}
+
+
+function btnPlusJeune_onclick()
+{
+    var Jeune;
+
+    Jeune = trouverJeuneAge();
+    alert("Voici le Plus Jeune Age: " + Jeune);
+}
+function trouverJeuneAge()
+{
+    var i, min, valeur;
+
+    min = 100;
+    for (i = 0; i < tabAge.length; i++)
+    {
+        valeur = tabAge[i];
+
+        if (min > valeur)
+        {
+            min = valeur;
+        }
+    }
+    Jeune = min;
+    return Jeune;
+}
+
+function btnRechercher_onclick()
+{
+    var Nom;
+    for (var i = 0; i < tabNoms.length; i++)
+    {
+        Nom = tabNoms[i];
+            if (tabNoms[i] === document.getElementById("txtPrenom").value + " " + document.getElementById("txtNom").value)
+            {
+                alert(Nom +" existe et est âgé de " + tabAge[i] + " ans.")
+            }
+            else
+            {
+
+            }
+    }
+    alert(document.getElementById("txtPrenom").value + " " + document.getElementById("txtNom").value + " n'existe pas dans le contexte.")
 }
 
 function valideChampsObligatoires()

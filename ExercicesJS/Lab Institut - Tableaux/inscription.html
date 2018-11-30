@@ -39,10 +39,11 @@
 			<!--fin Nav-->
 			<h1>Entrez les informations du membre</h1>
 			<!--boîte de texte-->
-			<form method="get" id="frmMembre" action="Reponse.htm" onsubmit="return frmMembre_onsubmit()">
+			<form method="get" id="frmMembre" action="">
 			<label id="lblMessageErreur"></label>
 			<div><label>Nom<span>*</span></label><input type="text" id="txtNom" name="txtNom"  size="40"></div>
-			<div><label>Prénom<span>*</span></label><input type="text" id="txtPrenom" name="txtPrenom" size="40"></div>
+			<div><label>Prenom<span>*</span></label><input type="text" id="txtPrenom" name="txtNom"  size="40"></div>
+			<div><label>Age</label><input type="text" id="txtAge" name="txtPrenom" size="40"></div>
 			<div><label>Adresse<span>*</span></label><input type="text" id="txtAdresse" name="txtAdresse" size="40"></div>
 			<div><label>Ville<span>*</span></label><input type="text" id="txtVille" name="txtVille" size="40"></div>
 			<div><label>Code postal</label><input type="text" id="txtCodePostal" name="txtCodePostal" size="15"></div>
@@ -53,8 +54,8 @@
 				<option value="Étudiant">Étudiant</option>
 				<option value="Retraité">Retraité</option>
 			</select>
-			<div id="Boutons"><input class="bouton" value="Envoyer" id="btnEnvoyer" type="submit"/> <div></div><input class="bouton" type="reset" value="Réintialiser" onclick="return")/></div>
-
+			<div id="Boutons"><input class="bouton" value="Envoyer" id="btnEnvoyer" type="button" onclick="frmMembre_onclick()"/> <input class="bouton" type="reset" value="Réintialiser" onclick="return confirm(`Voulez-vous vraiment vous inscrire et payer un montant de ` + PrixMembre() + `$ pour devenir membre?`)"/>
+				<input class="bouton" type="button" value="Rechercher" onclick="btnRechercher_onclick()"/> <input class="bouton" type="button" value="Plus Jeune" onclick="btnPlusJeune_onclick()"/></div>
 		</form>
 			<!--ligne de séparation-->
 			<hr>
